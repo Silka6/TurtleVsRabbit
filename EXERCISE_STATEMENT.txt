@@ -1,0 +1,84 @@
+
+Crea un programa que simule la fábula de la tortuga y la liebre mediante una carrera entre ambos animales,
+sabiendo que las normas de la carrera serán:
+    •La carrera se desarrollará en varias etapas dentro de un circuito de 50 casillas.
+    Ambos animales comenzarán en la casilla de salida, que sería la casilla 0.
+    •Cada etapa se dividirá en turnos, uno corresponderá al movimiento de la tortuga y
+    otro al de la liebre, en función de las siguientes reglas:
+        •Movimiento de la Tortuga:
+            »En cada etapa podrá avanzar entre 1 y 3 casillas, de forma aleatoria.
+            »No podrá retroceder casillas.
+
+        •Movimiento de la Liebre:
+            »Tendrá diferentes comportamientos que se determinarán de forma aleatoria.
+            »Para calcular el comportamiento que tendrá la liebre en cada etapa se lanzará
+            un dado del 0 al 9.
+            »El cero representará que la liebre se ha dormido y que por tanto permanecerá en
+            la misma casilla en la que se encontraba al principio de la etapa. Es decir, no hay avance.
+            »Si el resultado está entre 1 y 3, la liebre deberá retroceder tantas casillas como el valor
+            obtenido en el dado. Nunca se podrá salir del circuito por lo que nunca se podrá retroceder de
+            la casilla de salida.
+            »Si el resultado está entre 4 y 9, la liebre avanzará tantas casillas como el valor obtenido en el dado.
+
+    •La etapa se considerará finalizada cuando ambos animales hayan finalizado su turno. Al finalizar cada etapa se deberá
+    indicar en qué casilla se encuentra cada uno de los animales, indicando cuál de los dos se encuentra en cabeza.
+    •El primer animal que llegue a la meta (llegar o superar la casilla 50) será declarado ganador. Si ambos animales llegasen
+    a la meta en la misma etapa la carrera finalizará en empate. En este momento, la carrera finalizará y se deberá mostrar un
+    mensaje por pantalla que avise de ello y felicite al animal ganador (o en caso de empate se deberá felicitar a los dos).
+
+Tras finalizar la carrera será necesario consultar con el usuario si desea jugar otra vez. 
+    •Si el usuario responde NO, el programa finalizará.
+    •Si responde SI el programa deberá repetirse.
+    •Si responde algo diferente se le deberá indicar que no se ha entendido su respuesta y se le repetirá la pregunta.
+
+Funcionamiento del programa
+Una vez se ejecute el programa se deberán mostrar las normas de la carrera a los usuarios a través de un método llamado
+descripcion_carrera(). Tras ello, el programa deberá preguntarles si desean participar:
+    •Si la respuesta es SI, se solicitarán los nombres de los jugadores.
+    •Si la respuesta es NO, el programa mostrará un mensaje de despedida y finalizará.
+    •Si la respuesta es diferente, el programa mostrará un mensaje de error y volverá a preguntar hasta que se obtenga una
+    respuesta válida (SI o NO).
+
+Los nombres de los jugadores deberán ser validados con las siguientes condiciones:
+    •No pueden estar vacíos o formados solo por espacios.
+    •Deben comenzar obligatoriamente por una letra.
+    •Deberán tener entre 2 y 10 caracteres.
+
+La obtención y validación de los nombres se deberá implementar a través de una función llamada obtener_datos(). 
+Una vez obtenidos los nombres, a cada uno de los jugadores se les asignará un animal de forma aleatoria para decidir qué usuario
+controlará a la liebre y cuál a la tortuga. El programa deberá mostrar un mensaje de bienvenida para los jugadores indicando qué
+animal representará a cada uno de ellos. Esta lógica se implementará a través de una función llamada asignacion_y_bienvenida().
+
+Durante el desarrollo de la carrera:
+    •En cada etapa, se mostrarán las posiciones alcanzadas por la tortuga y la liebre después de sus respectivos turnos.
+    Indicando que animal va en cabeza.
+    •Una vez alcanzada la meta, se deberá informar de que la carrera ha finalizado, anunciado además si se ha producido un empate
+    o quien ha sido el ganador.
+    Una vez finalizada la carrera, el programa deberá preguntar si los usuarios desean jugar otra vez:
+    •Si la respuesta es SI, el juego se reiniciará desde el principio.
+    •Si la respuesta es NO, el programa mostrará un mensaje de agradecimiento y finalizará.
+    •Si la respuesta es diferente, se deberá mostrar un mensaje de error, volviendo a realizar la pregunta hasta que se obtenga una
+    respuesta válida.
+
+Requisitos técnicos
+Para que el programa se considere válido será necesario definir una clase llamada Carrera_Fabula que contendrá la lógica de la
+carrera. La clase deberá contener:
+    •Todas las constantes y variables necesarias.
+    •Un método constructor que permita inicializar la carrera.
+    •Los métodos setter y getter necesarios.
+    •Todos aquellos métodos adicionales que resulten necesarios para:
+    •Gestionar el movimiento de cada animal.
+    •Mostrar las posiciones de cada animal al finalizar una etapa.
+    •Comprobar el ganador de la carrera.
+    •Validar las respuestas de los usuarios.
+    •Mostrar las normas de la carrera (descripcion_carrera()).
+
+Y definir una clase ejecutable llamada Main que se encargará de ejecutar el programa. La clase ejecutable deberá:
+    •Incluir una función llamada obtener_datos() que solicitará y validará los nombres de los usuarios que jugarán en lacarrera.
+    •Incluir una función llamada asignacion_y_bienvenida() que se encargará de asignar aleatoriamente cada animal a los jugadores.
+    •Incluirá un método principal que se encargará de:
+    •Mostrar las normas del juego
+    •Preguntar al usuario si desea iniciar el juego.
+        »Si la respuesta del usuario es afirmativa se deberá gestionar toda la partida hasta decidir el resultado. Una vez
+        finalizada la carrera, se le deberá preguntar al usuario si desea jugar otra vez o salir del programa.
+        »Si la respuesta es negativa el programa finalizará enviando un mensaje de despedida al usuario.
